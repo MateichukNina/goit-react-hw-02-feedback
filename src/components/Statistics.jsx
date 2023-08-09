@@ -1,5 +1,6 @@
 
 import { Section } from './Section';
+import PropTypes from "prop-types";
 
 export const Statistic = ({ good, neutral, bad, totalFeedback, positiveFeedback }) => {
 
@@ -20,4 +21,13 @@ export const Statistic = ({ good, neutral, bad, totalFeedback, positiveFeedback 
       
     );
   
+}
+
+
+Statistic.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  totalFeedback: PropTypes.number,
+  positiveFeedback: PropTypes.number,
 }

@@ -1,6 +1,8 @@
 import { Statistic } from './Statistics';
 import { FeedbackOptions } from './FeedbackOptions';
+import { Notification } from './Notification';
 import { Component } from 'react';
+import { GlobalStyles } from './GlobalStyle';
 
 export class App extends Component {
   state = {
@@ -45,29 +47,37 @@ export class App extends Component {
   };
 
   render() {
+    const total = this.totalFeedback();
+
     return (
       <div
         style={{
           height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
+          //  display: 'flex',
+          //  alignItems: 'center',
+          margin: '100px',
           fontSize: 40,
           color: '#010101',
         }}
       >
-        <FeedbackOptions
+        <FeedbackOptions style={{display: 'flex', alignItems: 'center',}}
           handleClickGood={this.handleClickGood}
           handleClickNeutral={this.handleClickNeutral}
           handleClickBad={this.handleClickBad}
          
         />
-        <Statistic
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          totalFeedback={this.totalFeedback()}
-          positiveFeedback={this.positiveFeedback()}
-        />
+           {total > 0 ? (
+          <Statistic
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            totalFeedback={total}
+            positiveFeedback={this.positiveFeedback()}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
+        <GlobalStyles/>
       </div>
     );
   }

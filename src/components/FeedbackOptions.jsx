@@ -1,4 +1,6 @@
 import { Section } from "./Section";
+import PropTypes from "prop-types";
+import { Button } from "./FeedbackOptions.styled";
 
 
 
@@ -9,14 +11,18 @@ export const FeedbackOptions = ({handleClickGood, handleClickNeutral, handleClic
             <div>
               <Section title="FeedbackOptions">
               {/* <h1>Please leave Feedback</h1> */}
-              <button onClick={handleClickGood}>Good</button>
-              <button onClick={handleClickNeutral}>Neutral</button>
-              <button onClick={handleClickBad}>Bad</button>
+              <Button onClick={handleClickGood}>Good</Button>
+              <Button onClick={handleClickNeutral}>Neutral</Button>
+              <Button onClick={handleClickBad}>Bad</Button>
               </Section>
               
               </div>
   )
       }
     
-
-  
+      FeedbackOptions.propTypes = {
+        handleClickGood: PropTypes.func.isRequired,
+        handleClickNeutral: PropTypes.func.isRequired,
+        handleClickBad: PropTypes.func.isRequired,
+      };
+      
