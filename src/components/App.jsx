@@ -3,6 +3,7 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Notification } from './Notification';
 import { Component } from 'react';
 import { GlobalStyles } from './GlobalStyle';
+import { AppWraper } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -50,7 +51,7 @@ export class App extends Component {
     const total = this.totalFeedback();
 
     return (
-      <div
+      <AppWraper
         style={{
           height: '100vh',
           //  display: 'flex',
@@ -78,7 +79,7 @@ export class App extends Component {
           <Notification message="There is no feedback" />
         )}
         <GlobalStyles/>
-      </div>
+      </AppWraper>
     );
   }
 }
